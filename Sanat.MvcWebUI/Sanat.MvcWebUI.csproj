@@ -44,6 +44,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -90,18 +96,82 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="theme\css\style.css" />
+    <Content Include="theme\home.html" />
+    <Content Include="theme\img\art.jpg" />
+    <Content Include="theme\img\bg.jpg" />
+    <Content Include="theme\js\holder.min.js" />
+    <Content Include="theme\product-details.html" />
+    <Content Include="theme\product-list.html" />
+    <Content Include="Upload\1.jpg" />
+    <Content Include="Upload\2.jpg" />
+    <Content Include="Upload\3.jpg" />
+    <Content Include="Upload\4.jpg" />
+    <Content Include="Upload\5.jpg" />
     <Content Include="Web.config" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Entity\Category.cs" />
+    <Compile Include="Entity\DataContext.cs" />
+    <Compile Include="Entity\DataInitializer.cs" />
+    <Compile Include="Entity\Product.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
+    <Content Include="theme\.git\COMMIT_EDITMSG" />
+    <Content Include="theme\.git\config" />
+    <Content Include="theme\.git\description" />
+    <Content Include="theme\.git\HEAD" />
+    <Content Include="theme\.git\hooks\applypatch-msg.sample" />
+    <Content Include="theme\.git\hooks\commit-msg.sample" />
+    <Content Include="theme\.git\hooks\fsmonitor-watchman.sample" />
+    <Content Include="theme\.git\hooks\post-update.sample" />
+    <Content Include="theme\.git\hooks\pre-applypatch.sample" />
+    <Content Include="theme\.git\hooks\pre-commit.sample" />
+    <Content Include="theme\.git\hooks\pre-push.sample" />
+    <Content Include="theme\.git\hooks\pre-rebase.sample" />
+    <Content Include="theme\.git\hooks\pre-receive.sample" />
+    <Content Include="theme\.git\hooks\prepare-commit-msg.sample" />
+    <Content Include="theme\.git\hooks\update.sample" />
+    <Content Include="theme\.git\index" />
+    <Content Include="theme\.git\info\exclude" />
+    <Content Include="theme\.git\logs\HEAD" />
+    <Content Include="theme\.git\logs\refs\heads\master" />
+    <Content Include="theme\.git\logs\refs\remotes\origin\master" />
+    <Content Include="theme\.git\objects\12\7534f8a17abf609eeabe9dae91aed829090193" />
+    <Content Include="theme\.git\objects\1f\bef1263fbf1e9fab8c599af0028c0d5919c136" />
+    <Content Include="theme\.git\objects\33\7a5b536866ae5ed2a8cdf6da0321917ea3cf58" />
+    <Content Include="theme\.git\objects\40\c2069a777ef33d9181357181069b5dad09f1e7" />
+    <Content Include="theme\.git\objects\54\218a348df32ce9cadbe7375242602b97cb37f5" />
+    <Content Include="theme\.git\objects\66\8b86f2ff666d22388e875576233b7869372b9c" />
+    <Content Include="theme\.git\objects\68\01b43fe67b6cc36947937914e421a376d88ff2" />
+    <Content Include="theme\.git\objects\72\7a273a8fe6a2fe7d3a25db12c8f649a755c771" />
+    <Content Include="theme\.git\objects\90\334b0e1f50a2d2edbbe19d8f830cde230019a3" />
+    <Content Include="theme\.git\objects\9e\26b399fa909b06cc42e540cc449a0f493434e7" />
+    <Content Include="theme\.git\objects\eb\9469a169d4881702673360df2adfe54a70ae53" />
+    <Content Include="theme\.git\objects\ec\8265cec9ac8f03b2227cd1e5487cc155c26231" />
+    <Content Include="theme\.git\refs\heads\master" />
+    <Content Include="theme\.git\refs\remotes\origin\master" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\_ProductList.cshtml" />
+    <Content Include="Views\Home\GetCategories.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -111,8 +181,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
+    <Folder Include="theme\.git\objects\info\" />
+    <Folder Include="theme\.git\objects\pack\" />
+    <Folder Include="theme\.git\refs\tags\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Sanat.MvcWebUI.Entity.Category>
+@{ 
+    var selectedCatagory = Url.RequestContext.RouteData.Values["id"];
+}
+
+<ul class="list-group">
+  
+        <a href="/Home/List" class="list-group-item">
+            <i class="fa fa-chevron-right" data-unicode="f054"></i>
+            Tüm Katagoriler
+        </a>
+
+
+
+
+
+
+
+    @foreach (var item in Model)
+    {
+        if (selectedCatagory != null)
+        {
+            if (item.Id == int.Parse(selectedCatagory.ToString()))
+            {
+                //seçilen katagori ile raot id si birbirine eşit.
+
+              
+                    <a href="/Home/List/@item.Id"  class="list-group-item active ">
+                        <i class="fa fa-chevron-right" data-unicode="f054"></i>
+                        @item.Name
+                    </a>
+
+            }
+            else
+            {
+
+            
+                    <a href="/Home/List/@item.Id" class="list-group-item">
+                        <i class="fa fa-chevron-right" data-unicode="f054"></i>
+                        @item.Name
+                    </a>
+
+              
+            }
+
+        }
+        else
+        {
+
+         
+                <a href="/Home/List/@item.Id" class="list-group-item">
+                    <i class="fa fa-chevron-right" data-unicode="f054"></i>
+                    @item.Name
+                </a>
+
+        
+        }
+
+
+    }
+</ul>
+
+
+
