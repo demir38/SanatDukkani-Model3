@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Sanat.MvcWebUI.Entity;
+using Sanat.MvcWebUI.Identity;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,6 +16,10 @@ namespace Sanat.MvcWebUI
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            Database.SetInitializer(new DataInitializer());
+
+            Database.SetInitializer(new IndentityInitializer());
         }
     }
 }
